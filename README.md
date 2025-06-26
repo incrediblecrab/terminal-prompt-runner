@@ -29,6 +29,10 @@ A VS Code extension that allows you to create, save, and run terminal command pr
 
 VS Code version 1.74.0 or higher
 
+## Author
+
+Max Marquardt | [mlot.ai](https://mlot.ai)
+
 ## License
 
-MIT License - see LICENSE file for details
+MIT
