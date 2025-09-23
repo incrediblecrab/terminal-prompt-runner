@@ -1,115 +1,115 @@
 {
-    "name": "terminal-prompt-runner",
-    "displayName": "Terminal Prompt Runner",
-    "description": "Create and run text prompts in the VS Code terminal",
-    "version": "1.1.0",
-    "publisher": "maxs-lab-of-things",
-    "author": {
+  "name": "terminal-prompt-runner",
+  "displayName": "Terminal Prompt Runner",
+  "description": "Create and run text prompts in the VS Code terminal",
+  "version": "1.5.0",
+  "publisher": "maxs-lab-of-things",
+  "author": {
     "name": "Max Marquardt",
     "url": "https://mlot.ai"
   },
   "license": "MIT",
   "homepage": "https://mlot.ai",
-    "icon": "icon.png",
-    "engines": {
-        "vscode": "^1.74.0"
+  "icon": "icon.png",
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "views": {
+      "explorer": [
+        {
+          "id": "terminalPromptRunner",
+          "name": "Terminal Prompts",
+          "icon": "$(terminal)",
+          "contextualTitle": "Terminal Prompt Runner"
+        }
+      ]
     },
-    "categories": [
-        "Other"
+    "commands": [
+      {
+        "command": "terminalPromptRunner.addPrompt",
+        "title": "Add Prompt",
+        "icon": "$(add)"
+      },
+      {
+        "command": "terminalPromptRunner.editPrompt",
+        "title": "Edit Prompt",
+        "icon": "$(edit)"
+      },
+      {
+        "command": "terminalPromptRunner.deletePrompt",
+        "title": "Delete Prompt",
+        "icon": "$(trash)"
+      },
+      {
+        "command": "terminalPromptRunner.runPrompt",
+        "title": "Run Prompt",
+        "icon": "$(play)"
+      },
+      {
+        "command": "terminalPromptRunner.refresh",
+        "title": "Refresh",
+        "icon": "$(refresh)"
+      }
     ],
-    "activationEvents": [],
-    "main": "./out/extension.js",
-    "contributes": {
-        "views": {
-            "explorer": [
-                {
-                    "id": "terminalPromptRunner",
-                    "name": "Terminal Prompts",
-                    "icon": "$(terminal)",
-                    "contextualTitle": "Terminal Prompt Runner"
-                }
-            ]
+    "menus": {
+      "view/title": [
+        {
+          "command": "terminalPromptRunner.addPrompt",
+          "when": "view == terminalPromptRunner",
+          "group": "navigation"
         },
-        "commands": [
-            {
-                "command": "terminalPromptRunner.addPrompt",
-                "title": "Add Prompt",
-                "icon": "$(add)"
-            },
-            {
-                "command": "terminalPromptRunner.editPrompt",
-                "title": "Edit Prompt",
-                "icon": "$(edit)"
-            },
-            {
-                "command": "terminalPromptRunner.deletePrompt",
-                "title": "Delete Prompt",
-                "icon": "$(trash)"
-            },
-            {
-                "command": "terminalPromptRunner.runPrompt",
-                "title": "Run Prompt",
-                "icon": "$(play)"
-            },
-            {
-                "command": "terminalPromptRunner.refresh",
-                "title": "Refresh",
-                "icon": "$(refresh)"
-            }
-        ],
-        "menus": {
-            "view/title": [
-                {
-                    "command": "terminalPromptRunner.addPrompt",
-                    "when": "view == terminalPromptRunner",
-                    "group": "navigation"
-                },
-                {
-                    "command": "terminalPromptRunner.refresh",
-                    "when": "view == terminalPromptRunner",
-                    "group": "navigation"
-                }
-            ],
-            "view/item/context": [
-                {
-                    "command": "terminalPromptRunner.editPrompt",
-                    "when": "view == terminalPromptRunner && viewItem == prompt",
-                    "group": "inline@1"
-                },
-                {
-                    "command": "terminalPromptRunner.deletePrompt",
-                    "when": "view == terminalPromptRunner && viewItem == prompt",
-                    "group": "inline@2"
-                },
-                {
-                    "command": "terminalPromptRunner.runPrompt",
-                    "when": "view == terminalPromptRunner && viewItem == prompt",
-                    "group": "inline@3"
-                }
-            ]
+        {
+          "command": "terminalPromptRunner.refresh",
+          "when": "view == terminalPromptRunner",
+          "group": "navigation"
+        }
+      ],
+      "view/item/context": [
+        {
+          "command": "terminalPromptRunner.editPrompt",
+          "when": "view == terminalPromptRunner && viewItem == prompt",
+          "group": "inline@1"
         },
-        "viewsWelcome": [
-            {
-                "view": "terminalPromptRunner",
-                "contents": "No terminal prompts saved.\n[Add Prompt](command:terminalPromptRunner.addPrompt)"
-            }
-        ]
+        {
+          "command": "terminalPromptRunner.deletePrompt",
+          "when": "view == terminalPromptRunner && viewItem == prompt",
+          "group": "inline@2"
+        },
+        {
+          "command": "terminalPromptRunner.runPrompt",
+          "when": "view == terminalPromptRunner && viewItem == prompt",
+          "group": "inline@3"
+        }
+      ]
     },
-    "scripts": {
-        "vscode:prepublish": "npm run compile",
-        "compile": "tsc -p ./",
-        "watch": "tsc -watch -p ./",
-        "pretest": "npm run compile && npm run lint",
-        "lint": "eslint src --ext ts",
-        "test": "node ./out/test/runTest.js"
-    },
-    "devDependencies": {
-        "@types/node": "16.x",
-        "@types/vscode": "^1.74.0",
-        "@typescript-eslint/eslint-plugin": "^8.34.0",
-        "@typescript-eslint/parser": "^8.34.0",
-        "@vscode/vsce": "^2.22.0",
-        "eslint": "^9.28.0",
-        "typescript": "^4.9.3"
-    }
+    "viewsWelcome": [
+      {
+        "view": "terminalPromptRunner",
+        "contents": "No terminal prompts saved.\n[Add Prompt](command:terminalPromptRunner.addPrompt)"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/node": "16.x",
+    "@types/vscode": "^1.74.0",
+    "@typescript-eslint/eslint-plugin": "^8.34.0",
+    "@typescript-eslint/parser": "^8.34.0",
+    "@vscode/vsce": "^2.22.0",
+    "eslint": "^9.28.0",
+    "typescript": "^4.9.3"
+  }
 }

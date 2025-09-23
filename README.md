@@ -1,6 +1,11 @@
 # Terminal Prompt Runner
 
+![Version](https://img.shields.io/visual-studio-marketplace/v/maxs-lab-of-things.terminal-prompt-runner)
+![MLoT](https://img.shields.io/badge/MLoT-ai-blue)
+
 A VS Code extension that allows you to create, save, and run terminal command prompts with a single click.
+
+![Demo](https://raw.githubusercontent.com/incrediblecrab/Packages-and-Extensions-Media/main/terminal-prompt-runner.gif)
 
 ## Features
 
@@ -29,9 +34,16 @@ A VS Code extension that allows you to create, save, and run terminal command pr
 
 VS Code version 1.74.0 or higher
 
-## Author
+## Resources
 
-Max Marquardt | [mlot.ai](https://mlot.ai)
+- 📺 [Watch Demo Video](https://youtu.be/AxriOnDiGhk)
+- 🌐 [Visit MLoT Page](https://mlot.ai/terminal-prompt-runner/)
+- 🔒 [Privacy Policy](https://mlot.ai/privacy)
+
+## Publisher
+
+**Max's Lab of Things**
+Visit [mlot.ai](https://mlot.ai/)
 
 ## License
 
