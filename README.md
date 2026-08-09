@@ -5,7 +5,7 @@
 
 A VS Code extension that allows you to create, save, and run terminal command prompts with a single click.
 
-![Demo](https://raw.githubusercontent.com/incrediblecrab/Packages-and-Extensions-Media/main/gifs/terminal-prompt-runner.gif)
+![Demo](https://raw.githubusercontent.com/incrediblecrab/mlot-developer-media/main/gifs/terminal-prompt-runner.gif)
 
 ## Features
 
