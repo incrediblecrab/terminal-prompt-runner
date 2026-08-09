@@ -8,7 +8,7 @@
 
 ### 1. Open in VS Code
 ```bash
-cd /Users/maxmarquardt/Documents/developer/vs-code/terminal-prompt-runner
+cd path/to/terminal-prompt-runner
 code .
 ```
 
