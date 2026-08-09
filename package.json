@@ -111,5 +111,12 @@
     "@vscode/vsce": "^2.22.0",
     "eslint": "^9.28.0",
     "typescript": "^4.9.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/incrediblecrab/terminal-prompt-runner.git"
+  },
+  "bugs": {
+    "url": "https://github.com/incrediblecrab/terminal-prompt-runner/issues"
   }
 }
