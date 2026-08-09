@@ -2,7 +2,7 @@
   "name": "terminal-prompt-runner",
   "displayName": "Terminal Prompt Runner",
   "description": "Create and run text prompts in the VS Code terminal",
-  "version": "1.5.0",
+  "version": "1.5.1",
   "publisher": "maxs-lab-of-things",
   "author": {
     "name": "Max Marquardt",
