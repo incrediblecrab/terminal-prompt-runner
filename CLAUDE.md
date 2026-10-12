@@ -1,56 +1,23 @@
-# Terminal Prompt Runner - VS Code Extension
+# CLAUDE.md
 
-## Project Overview
-A VS Code extension that allows users to create, manage, and run text prompts in the VS Code terminal. Provides a dedicated tree view for organizing and executing terminal commands with a user-friendly interface.
+This file provides guidance to Claude Code (claude.ai/code) and GitHub Copilot CLI when working in this repository.
 
-## Technology Stack
-- TypeScript
-- VS Code Extension API
-- Tree Data Provider
-- Terminal integration
-- Custom prompt editor
-
-## Architecture
-- `src/extension.ts` - Main extension entry point and command registration
-- `src/promptProvider.ts` - Tree view provider for managing terminal prompts
-- `src/promptEditor.ts` - Custom editor for creating and editing prompts
-- `src/types.ts` - Type definitions for prompt data structures
-
-## Key Features
-- Create and manage terminal prompts with custom names
-- Tree view interface for prompt organization
-- Direct execution of prompts in VS Code terminal
-- In-line editing capabilities
-- Persistent storage of prompts
-- Quick access toolbar actions
-
-## Development Commands
-- `npm run compile` - Compile TypeScript
-- `npm run watch` - Watch for changes and recompile
-- `npm run lint` - Run ESLint with TypeScript support
-- `npm run test` - Run tests
-- `npm run vscode:prepublish` - Prepare for publishing
-
-## User Interface
-The extension adds a "Terminal Prompts" view to the VS Code Explorer with:
-- Tree view showing all saved prompts
-- Toolbar buttons for adding prompts and refreshing
-- Context menu options for editing, deleting, and running prompts
-- Welcome message when no prompts are saved
+Terminal Prompt Runner is a VS Code extension that saves named multi-line shell snippets in a "Terminal Prompts" Explorer view and runs them in an integrated terminal, optionally chaining one prompt into another. It is published on the Marketplace as `maxs-lab-of-things.terminal-prompt-runner`. The repository is public.
 
 ## Commands
-- `terminalPromptRunner.addPrompt` - Add new terminal prompt
-- `terminalPromptRunner.editPrompt` - Edit existing prompt
-- `terminalPromptRunner.deletePrompt` - Delete selected prompt
-- `terminalPromptRunner.runPrompt` - Execute prompt in terminal
-- `terminalPromptRunner.refresh` - Refresh the prompt list
 
-## Testing
-The project includes a `TESTING.md` file with testing documentation and procedures.
+```bash
+npm run compile      # tsc -p ./ -> out/
+npm run watch
+npx vsce package     # read the printed file list before publishing
+```
 
-## Usage
-1. Open the "Terminal Prompts" view in VS Code Explorer
-2. Click "Add Prompt" to create a new terminal command
-3. Enter a name and command text for your prompt
-4. Use the play button to execute prompts in the terminal
-5. Edit or delete prompts using the context menu options
+Run the extension with F5 from VS Code; `TESTING.md` is the manual test procedure. There are no automated tests: `npm test` runs `npm run lint` first, which fails because the repository has no ESLint config, and `out/test/runTest.js` does not exist either.
+
+## Structure
+
+`src/promptProvider.ts` is the tree data provider and the only owner of state: prompts are an array of `Prompt` (`src/types.ts`) in `workspaceState` under `prompts`, so they are per workspace. `src/promptEditor.ts` is the webview form for adding and editing a prompt (name, content, optional `chainNext`). `runPromptChain` in `src/extension.ts` opens a terminal in the first workspace folder, sends each non-empty line with `sendText` 100 ms apart, and, if `chainNext` is set, waits a fixed 2 seconds and runs the next prompt in the same terminal. Despite the "on success" wording in the type comment and the UI, nothing checks exit status; chaining is purely time-based.
+
+## Releasing
+
+`.vscodeignore` is the only control over what ships in the `.vsix`; `.gitignore` is ignored by `vsce`. `TESTING.md` is excluded by its managed block, which a standardizing script rewrites, so add project-specific exclusions outside that block. The README states the Marketplace version, so bump it with `package.json` and `CHANGELOG.md`. The publishing procedure is in `../README.md`.
