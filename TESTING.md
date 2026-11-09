@@ -2,7 +2,7 @@
 
 ## Prerequisites
 - VS Code version 1.74.0 or higher
-- Node.js and npm installed
+- Node.js and pnpm installed
 
 ## Development Testing
 
@@ -14,7 +14,7 @@ code .
 
 ### 2. Install Dependencies
 ```bash
-npm install
+pnpm install
 ```
 
 ### 3. Run in Debug Mode
